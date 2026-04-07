@@ -64,7 +64,7 @@ const HeroSection = () => {
             <span className="text-primary-foreground">Knowledge into</span>
             <br />
       
-          <span className="gradient-text block">ProfessIonal</span>
+          <span className="gradient-text block">ProfessIonaL</span>
        
             <span className="gradient-text">Excellence</span>
           </h1>

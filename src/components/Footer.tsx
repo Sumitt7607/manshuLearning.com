@@ -38,7 +38,7 @@ const Footer = () => (
         </div>
         <div className="border-t border-primary-foreground/10 pt-8 w-full">
           <p className="text-primary-foreground/40 text-sm">
-            Copyright © 2025 Manshu Learning. All Rights Reserved.
+            Copyright © 2026 Manshu Learning. All Rights Reserved.
           </p>
         </div>
       </div>

@@ -51,12 +51,18 @@ const Navbar = () => {
               {link.label}
             </button>
           ))}
-          <button
-            onClick={() => scrollTo("#contact")}
-            className="bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105 hover:shadow-lg"
-          >
-            Get Started
-          </button>
+  <button
+  onClick={() => {
+    const phoneNumber = "919110531127"; // 👉 apna number yaha daalo (country code ke sath)
+    const message = "Hi, I came across your website and I'm interested. Can you share more details?";
+
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  }}
+  className="bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105 hover:shadow-lg"
+>
+  Get Started
+</button>
         </div>
 
         {/* Mobile toggle */}

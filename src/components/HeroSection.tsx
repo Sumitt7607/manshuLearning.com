@@ -63,8 +63,9 @@ const HeroSection = () => {
             <br />
             <span className="text-primary-foreground">Knowledge into</span>
             <br />
-            <span className="gradient-text">Professional</span>
-            <br />
+      
+          <span className="gradient-text block">ProfessIonal</span>
+       
             <span className="gradient-text">Excellence</span>
           </h1>
 
@@ -116,10 +117,10 @@ const HeroSection = () => {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+        {/* <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
           <span className="text-primary-foreground/50 text-xs tracking-widest uppercase">Scroll</span>
           <ChevronDown className="w-5 h-5 text-secondary" />
-        </div>
+        </div> */}
       </div>
     </section>
   );

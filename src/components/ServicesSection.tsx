@@ -91,9 +91,19 @@ const ServicesSection = () => {
                 </div>
                 <h3 className="text-xl font-heading font-bold text-foreground mb-3">{service.title}</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">{service.desc}</p>
-                <div className="flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-4 transition-all duration-300 cursor-pointer">
-                  Learn More <ArrowRight className="w-4 h-4" />
-                </div>
+             <div
+  onClick={() => {
+    const phoneNumber = "919110531127"; // 👉 apna number daalo
+
+    const message = `Hi, I came across your website and I'm interested in ${service.title}. Can you share more details?`;
+
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  }}
+  className="flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-4 transition-all duration-300 cursor-pointer"
+>
+  Learn More <ArrowRight className="w-4 h-4" />
+</div>
               </div>
             );
           })}

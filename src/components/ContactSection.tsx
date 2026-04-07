@@ -5,10 +5,28 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 const ContactSection = () => {
   const { ref, isVisible } = useScrollAnimation();
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      await fetch("https://formsubmit.co/ajax/info@manshulearning.com", {
+        method: "POST",
+        body: formData,
+      });
+
+      setSubmitted(true);
+      form.reset();
+    } catch (error) {
+      alert("Something went wrong ❌");
+    }
+
+    setLoading(false);
     setTimeout(() => setSubmitted(false), 3000);
   };
 
@@ -43,13 +61,10 @@ const ContactSection = () => {
           >
             {[
               { icon: Mail, label: "Email Address", value: "info@manshulearning.com" },
-              { icon: Phone, label: "Phone Number", value: "010-020-0340" },
+              { icon: Phone, label: "Phone Number", value: "+91 91105 31127" },
               { icon: MapPin, label: "Address", value: "Guntur, India" },
             ].map((item, i) => (
-              <div
-                key={i}
-                className="flex items-start gap-4 group cursor-default"
-              >
+              <div key={i} className="flex items-start gap-4 group cursor-default">
                 <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                   <item.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
@@ -71,41 +86,56 @@ const ContactSection = () => {
             <div className="grid sm:grid-cols-2 gap-5 mb-5">
               <input
                 type="text"
+                name="name"
                 placeholder="Your Name..."
                 required
-                className="w-full px-5 py-3.5 rounded-xl bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300"
+                className="w-full px-5 py-3.5 rounded-xl bg-muted border border-border"
               />
               <input
                 type="tel"
+                name="phone"
                 placeholder="Your Phone..."
-                className="w-full px-5 py-3.5 rounded-xl bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300"
+                className="w-full px-5 py-3.5 rounded-xl bg-muted border border-border"
               />
             </div>
+
             <input
               type="email"
+              name="email"
               placeholder="Your E-mail..."
               required
-              className="w-full px-5 py-3.5 rounded-xl bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 mb-5"
+              className="w-full px-5 py-3.5 rounded-xl bg-muted border border-border mb-5"
             />
+
             <input
               type="text"
+              name="subject"
               placeholder="Subject..."
-              className="w-full px-5 py-3.5 rounded-xl bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 mb-5"
+              className="w-full px-5 py-3.5 rounded-xl bg-muted border border-border mb-5"
             />
+
             <textarea
+              name="message"
               placeholder="Your Message..."
               rows={5}
               required
-              className="w-full px-5 py-3.5 rounded-xl bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 mb-6 resize-none"
+              className="w-full px-5 py-3.5 rounded-xl bg-muted border border-border mb-6"
             />
+
+            {/* Hidden fields */}
+            <input type="hidden" name="_subject" value="New Contact Lead 🚀" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+
             <button
               type="submit"
-              className="group w-full sm:w-auto px-10 py-4 bg-primary text-primary-foreground rounded-full font-bold text-lg transition-all duration-300 hover:bg-secondary hover:scale-105 hover:shadow-lg flex items-center justify-center gap-3"
+              disabled={loading}
+              className="group w-full sm:w-auto px-10 py-4 bg-primary text-primary-foreground rounded-full font-bold text-lg flex items-center justify-center gap-3"
             >
-              {submitted ? "Message Sent! ✓" : (
+              {loading ? "Sending..." : submitted ? "Message Sent! ✓" : (
                 <>
                   Send Message
-                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <Send className="w-5 h-5" />
                 </>
               )}
             </button>

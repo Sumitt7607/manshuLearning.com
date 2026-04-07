@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
-const API = "http://localhost:5000/api";
+const API = "https://manshulearning-com.onrender.com/api";
 
 const TestimonialsSection = () => {
   const [testimonials, setTestimonials] = useState<any[]>([]);

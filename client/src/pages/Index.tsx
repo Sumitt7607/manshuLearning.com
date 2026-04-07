@@ -10,22 +10,31 @@ import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import ReviewForm from "@/components/ReviewForm"; // ✅ ADD THIS
 
-const Index = () => (
-  <div className="overflow-x-hidden">
-    <Navbar />
-    <HeroSection />
-    {/* <ClientLogos /> */}
-    <AboutSection />
-    <WhyChooseUs />
-    <ServicesSection />
-    <HowItWorks />
-    <TestimonialsSection />
-    <FAQSection />
-    <CTASection />
-    <ContactSection />
-    <Footer />
-  </div>
-);
+const Index = () => {
+  return (
+    <div className="overflow-x-hidden">
+      <Navbar />
+      <HeroSection />
+      {/* <ClientLogos /> */}
+      <AboutSection />
+      <WhyChooseUs />
+      <ServicesSection />
+      <HowItWorks />
+
+      {/* 🔥 ADD REVIEW FORM BEFORE TESTIMONIALS */}
+      {/* <ReviewForm onSuccess={() => window.location.reload()} /> */}
+
+      {/* 🔥 TESTIMONIALS (DYNAMIC) */}
+      <TestimonialsSection />
+
+      <FAQSection />
+      <CTASection />
+      <ContactSection />
+      <Footer />
+    </div>
+  );
+};
 
 export default Index;

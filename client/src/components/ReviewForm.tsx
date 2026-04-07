@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API = "http://localhost:5000/api";
+const API = "https://manshulearning-com.onrender.com/api";
 
 const ReviewForm = ({ onSuccess }: any) => {
   const [form, setForm] = useState({

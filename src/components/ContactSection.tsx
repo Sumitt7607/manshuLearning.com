@@ -62,7 +62,7 @@ const ContactSection = () => {
             {[
               { icon: Mail, label: "Email Address", value: "info@manshulearning.com" },
               { icon: Phone, label: "Phone Number", value: "+91 91105 31127" },
-              { icon: MapPin, label: "Address", value: "Guntur, India" },
+              { icon: MapPin, label: "Address", value: "Andhra Pradesh, India" },
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-4 group cursor-default">
                 <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">

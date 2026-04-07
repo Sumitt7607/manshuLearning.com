@@ -15,7 +15,7 @@ const Index = () => (
   <div className="overflow-x-hidden">
     <Navbar />
     <HeroSection />
-    <ClientLogos />
+    {/* <ClientLogos /> */}
     <AboutSection />
     <WhyChooseUs />
     <ServicesSection />

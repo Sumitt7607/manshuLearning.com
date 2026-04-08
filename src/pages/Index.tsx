@@ -27,7 +27,7 @@ const Index = () => {
       {/* <ReviewForm onSuccess={() => window.location.reload()} /> */}
 
       {/* 🔥 TESTIMONIALS (DYNAMIC) */}
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
 
       <FAQSection />
       <CTASection />

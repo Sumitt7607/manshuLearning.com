@@ -23,7 +23,7 @@ const TestimonialsSection = () => {
   if (testimonials.length === 0) return null;
 
   return (
-    <section className="py-24 lg:py-32 bg-[#f8f9fb] relative overflow-hidden">
+    <section   id="testimonials"  className="py-24 lg:py-32 bg-[#f8f9fb] relative overflow-hidden">
 
       {/* 🔥 HEADING */}
       <div className="text-center mb-20">
